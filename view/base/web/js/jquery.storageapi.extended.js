@@ -16,11 +16,9 @@ define([
      * @private
      */
     function _extend(storage) {
-        var cookiesConfig = window.cookiesConfig || {};
-
         $.extend(storage, {
-            _secure: !!cookiesConfig.secure,
-            _samesite: cookiesConfig.samesite ? cookiesConfig.samesite : 'lax',
+            _secure: window.cookiesConfig ? window.cookiesConfig.secure : false,
+            _samesite: window.cookiesConfig ? window.cookiesConfig.samesite : 'lax',
 
             /**
              * Set value under name
